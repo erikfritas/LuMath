@@ -5,11 +5,13 @@
   <span><strong><u>EM DESENVOLVIMENTO:</u><strong></span>
   <article>
     <h3>TODO:<h3>
-    <ul>
-      <li>Estilo;</li>
-      <li>Páginas: sobre e ajuda;</li>
-      <li>Sistema de cálculo;</li>
-    </ul>
+    <h5>
+      <ul>
+        <li>Estilo;</li>
+        <li>Páginas: sobre e ajuda;</li>
+        <li>Sistema de cálculo;</li>
+      </ul>
+    </h5>
   </article>
 </header>
 <hr>
