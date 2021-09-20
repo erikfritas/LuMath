@@ -5,7 +5,7 @@
   <span><strong><u>EM DESENVOLVIMENTO:</u><strong></span>
   <article>
     <h3>TODO:<h3>
-    <ul font-size="10px">
+    <ul style="font-size: 10px;">
       <li>Estilo;</li>
       <li>Páginas: sobre e ajuda;</li>
       <li>Sistema de cálculo;</li>
