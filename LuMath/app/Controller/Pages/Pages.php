@@ -30,6 +30,26 @@ class Pages{
 
     /**
      * Método responsável por
+     * retornar a $dir do getJS()
+     * @return string|array
+     */
+    private static function getDirsJS(){
+        $dir_js = scandir(__DIR__ . "/../../../resources/view/js");
+        if (sizeof($dir_js) > 2){
+            $js = [];
+            foreach ($dir_js as $value) {
+                # verifica se não é o . e nem o .. da pasta
+                if ($value !== '.' && $value !== '..')
+                    array_push($js, $value);
+            }
+            return View::getJS($js);
+        } else {
+            return View::getJS("global");
+        }
+    }
+
+    /**
+     * Método responsável por
      * retornar a página em si
      * @param string $title
      * @param string $content
@@ -42,7 +62,7 @@ class Pages{
             'header' => self::getHeader(),
             'content' => $content,
             'footer' => self::getFooter(),
-            'javascript' => View::getJS("global")
+            'javascript' => self::getDirsJS()
         ]);
     }
 

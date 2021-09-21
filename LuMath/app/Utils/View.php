@@ -2,6 +2,8 @@
 
 namespace App\Utils;
 
+use function PHPSTORM_META\type;
+
 class View{
 
     /**
@@ -32,11 +34,12 @@ class View{
     /**
      * Método responsável por
      * retornar o js da página
-     * @var string $dir
+     * @var string|array $dir
      * @return string
      */
-    public static function getJS($dir){
-        $local = __DIR__ . "/../../resources/view/js/$dir";
+    /* 
+    
+    $local = __DIR__ . "/../../resources/view/js/$dir";
         $dir_js = scandir($local);
         if ($dir_js){
             $files_dir = sizeof($dir_js)-2;
@@ -48,6 +51,51 @@ class View{
                 # verifica se o arquivo tem uma extensão do tipo .js
                 if ($ext[sizeof($ext)-1] === "js")
                     $js .= "<script src=\"".T_PATH."resources/view/js/$dir/$value\"></script>";
+            }
+            $js .= "<!-- END JS -->";
+            return $js;
+        } else return '';
+    
+    */
+    public static function getJS($dir){
+        if (gettype($dir) === "string"){
+            $local = __DIR__ . "/../../resources/view/js/$dir";
+            $dir_js = scandir($local);
+            if ($dir_js){
+                $files_dir = sizeof($dir_js)-2;
+
+                $js = "<!-- JS (files = $files_dir) -->";
+                foreach ($dir_js as $value){
+                    $ext = explode(".", $value);
+                    
+                    # verifica se o arquivo tem uma extensão do tipo .js
+                    if ($ext[sizeof($ext)-1] === "js")
+                        $js .= "<script src=\"".T_PATH."resources/view/js/$dir/$value\"></script>";
+                }
+                $js .= "<!-- END JS -->";
+                return $js;
+            } else return '';
+        } elseif (gettype($dir) === "array") {
+            $locals = $dir;
+            $local_ = __DIR__ . "/../../resources/view/js/";
+            $size_dirs = 0;
+
+            foreach ($locals as $value)
+                $size_dirs += sizeof(scandir($local_.$value))-2;
+            
+            $js = "<!-- JS (files = $size_dirs) -->";
+            foreach ($locals as $dir_) {
+                $local = $local_ . $dir_;
+                $dir_js = scandir($local);
+                if ($dir_js){
+                    foreach ($dir_js as $value){
+                        $ext = explode(".", $value);
+                        
+                        # verifica se o arquivo tem uma extensão do tipo .js
+                        if ($ext[sizeof($ext)-1] === "js")
+                            $js .= "<script src=\"".T_PATH."resources/view/js/$dir_/$value\"></script>";
+                    }
+                }
             }
             $js .= "<!-- END JS -->";
             return $js;
