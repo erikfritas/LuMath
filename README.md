@@ -7,7 +7,7 @@
     <h3>TODO:<h3>
     <ul>
       <li>Estilo;</li>
-      <li>Páginas: sobre e ajuda;</li>
+      <li>Fazer as páginas: sobre e ajuda;</li>
       <li>Sistema de cálculo;</li>
     </ul>
   </article>
