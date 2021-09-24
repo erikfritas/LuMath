@@ -1,0 +1,10 @@
+.all{
+    /* Aligns */
+    position: absolute;
+    z-index: 99;
+    overflow: auto;
+
+    /* Sizes */
+    width: 100%;
+    min-height: 100%;
+}
