@@ -45,3 +45,14 @@ function getQuery($query){
     else
         return [$key => $value];
 }
+
+/**
+ * Método de debugs
+ */
+function debug($var, ...$args){
+    echo "<pre>";
+    var_dump($var);
+    foreach ($args as $value)
+        var_dump($value);
+    echo "</pre>";
+}
