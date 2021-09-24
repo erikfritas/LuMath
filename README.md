@@ -8,7 +8,7 @@
     </kbd>
   </p>
   <hr>
-  <h3><strong><kbd>EM DESENVOLVIMENTO</kbd><strong></h3>
+  <h3><strong>EM DESENVOLVIMENTO<strong></h3>
 </header>
 <hr>
 <footer>
