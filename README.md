@@ -2,7 +2,7 @@
   <h1>LuMath</h1>
   <p>Uma calculadora feita em PHP, utilizando o padrão MVC</p>
   <hr>
-  <span><strong><kbd>EM DESENVOLVIMENTO</kbd><strong></span>
+  <h3><strong><kbd>EM DESENVOLVIMENTO</kbd><strong></h3>
 </header>
 <hr>
 <footer>
