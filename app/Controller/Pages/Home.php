@@ -79,7 +79,9 @@ class Home extends Pages{
             for ($i=0; $i <= $nums; $i+=1)
                 if (isset($_POST["num$i"]))
                     array_push($arr_nums, filter_var(htmlspecialchars($_POST["num$i"]), FILTER_SANITIZE_NUMBER_INT));
-            
+
+            $btn_resposta = '<button class="resposta" title="copiar" onclick="copiar(\'.resposta\')">';
+
             # ANSWER
             if (sizeof($arr_nums) > 0){
                 # calcula
@@ -153,8 +155,8 @@ class Home extends Pages{
                         }
                         break;
                 }
-                return $answer.'';
-            } else return $arr_nums[0].'';
+                return $btn_resposta.'Resposta: <span>'.$answer.'</span></button>';
+            } else return $btn_resposta.'Resposta: <span>'.$arr_nums[0].'</span></button>';
         } else return '';
     }
 

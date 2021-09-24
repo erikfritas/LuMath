@@ -2,7 +2,6 @@
     /* Aligns */
     position: absolute;
     z-index: 99;
-    overflow: auto;
 
     /* Sizes */
     width: 100%;
