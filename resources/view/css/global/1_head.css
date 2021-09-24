@@ -1,0 +1,16 @@
+*{
+    /* Aligns */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    /* Sizes */
+    height: 100%;
+
+    /* Colors */
+    background-color: aliceblue;
+    color: rgb(0, 0, 48);
+}

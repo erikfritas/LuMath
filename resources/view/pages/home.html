@@ -1,0 +1,28 @@
+<section>
+    <div id="calculadora">
+        <form action="" method="post">
+            <input list="operators" name="operators" placeholder="insira o operador...">
+            <datalist id="operators">
+                <option value="+ (adição)">
+                <option value="- (subtração)">
+                <option value="* (multiplicação)">
+                <option value="/ (divisão)">
+                <option value="% (porcentagem)">
+                <option value="** (potenciação)">
+            </datalist>
+            <br>
+            {{inputs}}
+            <input type="submit" name="answer" value="Calcular">
+        </form>
+        <button onclick="addInput()">Adicionar Input</button>
+        {{answer}}
+    </div>
+    <div id="sobre">
+        <!-- Sobre a calculadora e sobre a API -->
+        {{sobre}}
+    </div>
+    <div id="ajuda">
+        <!-- Como usar e como usar a API -->
+        {{ajuda}}
+    </div>
+</section>

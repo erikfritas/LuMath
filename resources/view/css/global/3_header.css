@@ -1,0 +1,41 @@
+nav{
+    /* Aligns */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Sizes */
+    width: 100%;
+    min-height: 60px;
+    padding: 0 5%;
+
+    /* Colors */
+    background-color: rgb(89, 80, 255);
+    background-image: linear-gradient(90deg, red, blue);
+}
+
+nav ul{
+    /* Aligns */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Sizes */
+    width: 30%;
+}
+
+nav ul li{
+    /* Alings */
+    list-style-type: none;
+}
+
+nav ul li a{
+    /* Colors */
+    color: rgb(209, 212, 255);
+}
+
+nav h2 a{
+    /* Colors */
+    color: aliceblue !important;
+}
