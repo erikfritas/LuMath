@@ -1,6 +1,12 @@
 <header>
   <h1>LuMath</h1>
   <p>Uma calculadora feita em PHP, utilizando o padrão MVC</p>
+  <p>Antes de usar execute
+    <br>
+    <kbd>
+      <pre>composer install</pre>
+    </kbd>
+  </p>
   <hr>
   <h3><strong><kbd>EM DESENVOLVIMENTO</kbd><strong></h3>
 </header>
