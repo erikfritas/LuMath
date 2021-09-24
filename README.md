@@ -6,7 +6,7 @@
   <article>
     <h3>TODO:<h3>
     <ul>
-      <li>Estilo</li>
+      <li>Estilo (EM ANDAMENTO)</li>
       <li>Fazer as páginas: sobre e ajuda</li>
     </ul>
   </article>
