@@ -4,7 +4,7 @@
   <p>Antes de usar execute
     <br>
     <kbd>
-      <pre>composer install</pre>
+      composer install
     </kbd>
   </p>
   <hr>
