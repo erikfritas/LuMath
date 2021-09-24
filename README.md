@@ -6,5 +6,5 @@
 </header>
 <hr>
 <footer>
-  <h1>MADE BY: erikfritas</h1>
+  <h3>MADE BY: erikfritas</h3>
 </footer>
