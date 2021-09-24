@@ -30,22 +30,24 @@ class Pages{
 
     /**
      * Método responsável por
-     * retornar a $dir do getJS()
+     * retornar a $dir das funções get
+     * @param string $dir
+     * @param void $get
      * @return string|array
      */
-    private static function getDirsJS(){
-        $dir_js = scandir(__DIR__ . "/../../../resources/view/js");
-        if (sizeof($dir_js) > 2){
-            $js = [];
-            foreach ($dir_js as $value) {
+    private static function getDirs($dir){
+        $dir_ = scandir(__DIR__ . "/../../../resources/view/$dir");
+        if (sizeof($dir_) > 2){
+            $files = [];
+            foreach ($dir_ as $value) {
                 # verifica se não é o . e nem o .. da pasta
-                if ($value !== '.' && $value !== '..')
-                    array_push($js, $value);
+                if ($value !== '.'
+                && $value !== '..')
+                    array_push($files, $value);
             }
-            return View::getJS($js);
-        } else {
-            return View::getJS("global");
-        }
+            return View::getFiles($dir, $files);
+        } else
+            return View::getFiles($dir, "global");
     }
 
     /**
@@ -57,12 +59,12 @@ class Pages{
      */
     public static function getPage($title, $content){
         return View::render('pages/page', [
-            'css' => View::getCSS("global"),
+            'css' => self::getDirs("css"),
             'title' => "$title | LuMath",
             'header' => self::getHeader(),
             'content' => $content,
             'footer' => self::getFooter(),
-            'javascript' => self::getDirsJS()
+            'javascript' => self::getDirs("js")
         ]);
     }
 

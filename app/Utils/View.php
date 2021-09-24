@@ -6,80 +6,65 @@ class View{
 
     /**
      * Método responsável por
-     * retornar o css da página
-     * @var string $dir
+     * retornar um ou mais 
+     * arquivos da página, tipo 
+     * css e js por exemplo
+     * @param string $name
+     * @param string|array $dir
      * @return string
      */
-    public static function getCSS($dir){
-        $local = __DIR__ . "/../../resources/view/css/$dir";
-        $dir_css = scandir($local);
-        if ($dir_css){
-            $files_dir = sizeof($dir_css)-2;
-
-            $css = "<!-- CSS (files = $files_dir) -->";
-            foreach ($dir_css as $value){
-                $ext = explode(".", $value);
-
-                # verifica se o arquivo tem uma extensão do tipo .css
-                if ($ext[sizeof($ext)-1] === "css")
-                    $css .= "<link rel=\"stylesheet\" href=\"".T_PATH."resources/view/css/$dir/$value\">";
-            }
-            $css .= "<!-- END CSS -->";
-            return $css;
-        } else return '';
-    }
-
-    /**
-     * Método responsável por
-     * retornar o js da página
-     * @var string|array $dir
-     * @return string
-     */
-    public static function getJS($dir){
+    public static function getFiles($name, $dir){
+        // se $dir for uma string
         if (gettype($dir) === "string"){
-            $local = __DIR__ . "/../../resources/view/js/$dir";
-            $dir_js = scandir($local);
-            if ($dir_js){
-                $files_dir = sizeof($dir_js)-2;
+            $local = __DIR__ . "/../../resources/view/$name/$dir";
+            $dir_ = scandir($local);
+            if ($dir_){
+                $files_dir = sizeof($dir_)-2;
 
-                $js = "<!-- JS (files = $files_dir) -->";
-                foreach ($dir_js as $value){
-                    $ext = explode(".", $value);
-                    
-                    # verifica se o arquivo tem uma extensão do tipo .js
-                    if ($ext[sizeof($ext)-1] === "js")
-                        $js .= "<script src=\"".T_PATH."resources/view/js/$dir/$value\"></script>";
+                $file_txt = "<!-- ".strtoupper($name)." (files = $files_dir) -->";
+                foreach ($dir_ as $value){
+                    # verifica se o arquivo tem uma extensão do tipo $name
+                    if (pathinfo($value)['extension'] === $name)
+                        $file_txt .= "<script src=\"".T_PATH."resources/view/$name/$dir/$value\"></script>";
                 }
-                $js .= "<!-- END JS -->";
-                return $js;
+                $file_txt .= "<!-- END ".strtoupper($name)." -->";
+                return $file_txt;
             } else return '';
+        
+        // se $dir for um array
         } elseif (gettype($dir) === "array") {
             $locals = $dir;
-            $local_ = __DIR__ . "/../../resources/view/js/";
+            $local_ = __DIR__ . "/../../resources/view/$name/";
             $size_dirs = 0;
 
+            // pega a quantidade de arquivos na pasta
             foreach ($locals as $value)
                 $size_dirs += sizeof(scandir($local_.$value))-2;
             
-            $js = "<!-- JS (files = $size_dirs) -->";
-            foreach ($locals as $dir_) {
-                $local = $local_ . $dir_;
-                $dir_js = scandir($local);
-                if ($dir_js){
-                    foreach ($dir_js as $value){
-                        $ext = explode(".", $value);
-                        
-                        # verifica se o arquivo tem uma extensão do tipo .js
-                        if ($ext[sizeof($ext)-1] === "js")
-                            $js .= "<script src=\"".T_PATH."resources/view/js/$dir_/$value\"></script>";
+            $file_txt = "<!-- ".strtoupper($name)." (files = $size_dirs) -->";
+
+            // percorre os diretórios
+            foreach ($locals as $dir_name) {
+                $local = $local_ . $dir_name;
+                $dir_array = scandir($local);
+                if ($dir_array){
+                    // percorre um diretório de dentro
+                    foreach ($dir_array as $value){
+                        # verifica se o arquivo tem uma extensão do tipo $name
+                        if (pathinfo($value)['extension'] === $name){
+                            if ($name === "js"){
+                                $file_txt .= "<script src=\"".T_PATH."resources/view/$name/$dir_name/$value\"></script>";
+                            } elseif ($name === "css"){
+                                $file_txt .= "<link rel=\"stylesheet\" href=\"".T_PATH."resources/view/$name/$dir_name/$value\">";
+                            }
+                        }
                     }
                 }
             }
-            $js .= "<!-- END JS -->";
-            return $js;
+            $file_txt .= "<!-- END ".strtoupper($name)." -->";
+            return $file_txt;
         } else return '';
     }
-
     /**
      * Método responsável por retornar
      * o conteúdo da view se ela existir
