@@ -21,3 +21,68 @@ a:hover{
     /* Colors */
     color: rgb(181, 181, 255);
 }
+
+hr{
+    /* Aligns */
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+button,
+[type="button"],
+[type="submit"]
+{
+    /* Aligns */
+    cursor: pointer;
+}
+
+[list]
+{
+    /* Sizes */
+    font-size: 30px;
+    width: 100%;
+}
+
+[type="text"],
+[type="password"],
+[type="email"],
+[type="url"],
+[type="number"],
+[list]
+{
+    /* Colors */
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 2px solid gray;
+    color: lightblue;
+
+    /* Sizes */
+    border-radius: 26px;
+    padding: 10px;
+
+    /* Times */
+    transition: background-color cubic-bezier(0.19, 1, 0.22, 1) .5s;
+}
+
+[type="text"]:hover,
+[type="password"]:hover,
+[type="email"]:hover,
+[type="url"]:hover,
+[type="number"]:hover,
+[list]:hover
+{
+    /* Colors */
+    background-color: rgba(32, 31, 43, 0.549);
+}
+
+[type="text"]:focus,
+[type="password"]:focus,
+[type="email"]:focus,
+[type="url"]:focus,
+[type="number"]:focus,
+[list]:focus
+{
+    /* Colors */
+    outline: none;
+    border-bottom: 2px solid aqua;
+}

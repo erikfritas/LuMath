@@ -6,11 +6,29 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html{
+    /* Colors */
+    background-color: black;
+}
+
+body{
+    /* Colors */
+    background-image: linear-gradient(to top, #000000, #242433);
+}
+
 html, body {
+    /* Aligns */
+    overflow-x: hidden;
+
     /* Sizes */
     height: 100%;
 
     /* Colors */
-    background-color: aliceblue;
     color: rgb(0, 0, 48);
+}
+
+::selection{
+    /* Colors */
+    background-color: rgba(0, 0, 0, 0.59);
+    color: lime;
 }

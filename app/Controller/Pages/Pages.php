@@ -58,6 +58,11 @@ class Pages{
      * @return string
      */
     public static function getPage($title, $content){
+        /**
+         * Substitui os elementos que tem o
+         * nome de uma das keys do array
+         * pelo valor dessa key
+         */
         return View::render('pages/page', [
             'css' => self::getDirs("css"),
             'title' => "$title | LuMath",
