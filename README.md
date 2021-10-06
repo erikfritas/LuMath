@@ -9,6 +9,7 @@
   </p>
   <hr>
   <h3><strong>EM DESENVOLVIMENTO<strong></h3>
+  <img src="./lumath_image.png" alt="lumath image to readme.md" >
 </header>
 <hr>
 <footer>
