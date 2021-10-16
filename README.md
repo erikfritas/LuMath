@@ -6,6 +6,7 @@
     <kbd>
       composer install
     </kbd>
+    e o site estará pronto para ser testado
   </p>
   <hr>
   <h3><strong>EM DESENVOLVIMENTO<strong></h3>
