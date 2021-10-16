@@ -2,7 +2,6 @@
   <h1>LuMath</h1>
   <p>Uma calculadora feita em PHP, utilizando o padrão MVC</p>
   <p>Antes de usar execute
-    <br>
     <kbd>
       composer install
     </kbd>
